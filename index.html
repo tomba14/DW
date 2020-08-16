@@ -3,14 +3,18 @@
 
 <head>
     <meta charset= utf-8>
+    <link rel="shortcut icon" href="img/logo.png" type="image/png">
     <title>Login eMercado</title>
     <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
+<meta name="google-signin-client_id" content="1061384233171-h11rvkqdisaun2bnh84madq9r3hl461p.apps.googleusercontent.com">
 <!-- JS, Popper.js, and jQuery -->
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
     function val_form(usr, pass){
         if(usr.trim()==="" || pass.trim()===""){
@@ -64,11 +68,12 @@
                      <input class="form-control" type=password id="contra" placeholder="Contraseña" required><br>
 
                      <button class="btn btn-warning" onclick=" val_form(usuario.value, contra.value);">Iniciar Sesion</button>
+                     <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 </div>
              
-         
+                
         </div>
     </div>
-</body>
+    
 
 </html>
