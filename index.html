@@ -17,11 +17,13 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
     function val_form(usr, pass){
+        localStorage.clear();
         if(usr.trim()==="" || pass.trim()===""){
             alert("Debes ingresar Usuario y contraseña");
             return false;
         }
         else{
+            localStorage.setItem("usuario",usr);
             location.href="next.html"
         }
     }
