@@ -14,6 +14,28 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .rating {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+
+    }
+    .rating input {
+    position: absolute;
+    top: -100px;
+    }
+    .rating label {
+    float: right;
+    color: #c1b8b8;
+    font-size: 30px; 
+    }
+    .rating label:hover,
+    .rating label:hover ~ label,
+    .rating input:checked ~ label {
+    color:orange;
+    }
+    </style>
 </head>
 
 <body>
