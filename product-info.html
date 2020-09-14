@@ -13,6 +13,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -30,13 +31,68 @@
     </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main">
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Descripción del producto</h2>
+        <p class="lead">Encontrarás aquí toda la información del producto.</p>
+        
+      </div>
+      <h3 id="categoryName"></h3>
+      <hr class="my-3">
+      <dl>
+        <dt>Descripción</dt>
+        <dd>
+          <p id="categoryDescription"></p>
+        </dd>
+
+        <dt>Cantidad de productos vendidos</dt>
+        <dd>
+          <p id="productCount"></p>
+        </dd>
+
+        <dt>Precio</dt>
+        <dd>
+          <p id="productCriteria"></p>
+        </dd>
+
+        <dt>Categoria</dt>
+        <dd>
+          <p id="categ"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          </div>
+        </dd>
+      </dl>
+      <br>
+      <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
     </div>
+    <div class="row" style="width:50%; padding: 100px; ">
+      <div class="list-group" id="commentscontainer"></div>
+    </div>
+    <div class="comentario" style="width:50%; padding: 100px; ">
+      <h2>Comentarios:</h2>
+      <textarea name="message" rows="3" cols="30" placeholder="Escriba un comentario" required></textarea>
+      <div class="rating"> Puntuación:
+        <br>
+        <input type="radio" id="star5" name="rate" value="5" onclick="document.getElementById('valor').innerHTML='5'">
+        <label for="star5" title="text">★</label>
+        <input type="radio" id="star4" name="rate" value="4" onclick="document.getElementById('valor').innerHTML='4'">
+        <label for="star4" title="text">★</label>
+        <input type="radio" id="star3" name="rate" value="3" onclick="document.getElementById('valor').innerHTML='3'">
+        <label for="star3" title="text">★</label>
+        <input type="radio" id="star2" name="rate" value="2" onclick="document.getElementById('valor').innerHTML='2'">
+        <label for="star2" title="text">★</label>
+        <input type="radio" id="star1" name="rate" value="1" onclick="document.getElementById('valor').innerHTML='1'">
+        <label for="star1" title="text">★</label>
+      </div>
+
+      <button type="button" onclick="alert('¡Tu comentario se agregó!')">Enviar</button>
+    </div>
+  </main>
   </div>
   <footer class="text-muted">
     <div class="container">
@@ -60,6 +116,7 @@
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
   <script src="js/funciones.js"></script>
+  <script src="js/coments.js"></script>
 </body>
 
 </html>
