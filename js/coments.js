@@ -25,7 +25,35 @@ function showcomm(){
 
         document.getElementById("commentscontainer").innerHTML = htmlContentToAppend;
 }
+function starcom(num){
+    localStorage.setItem("starvalue",num);
+}
 
+function inscom(com){
+    let name = localStorage.getItem("usuario");
+    let stars = localStorage.getItem("starvalue");
+    let comm = com;
+    var dt = new Date();
+    var datee= dt.getFullYear()+"-"+(dt.getMonth()+1)+"-"+dt.getDate();
+    var hs=dt.getHours()+":"+dt.getMinutes()+":"+dt.getSeconds();
+    var fecyhs=datee+" "+hs;
+        if(com.trim()===""){
+            alert("Debe completar ambos campos");
+        }
+        else{
+            var fcoment = {
+                "score": stars,
+                "description": comm,
+                "user": name,
+                "dateTime": fecyhs
+            }
+            currentArray.push(fcoment);
+            showcomm();
+            
+            alert('¡Tu comentario se agregó!');
+        }
+
+}
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.

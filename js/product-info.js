@@ -15,7 +15,7 @@ function showRelacionated(array){
         let productElement = array[i];
         if (bool){
             htmlContentToAppend += `
-            <div class="carousel-item active" data-interval="5000">
+            <div class="carousel-item active" >
             <img src=`+productElement.imgSrc+` class="d-block w-50 float-left">
             <div class="carousel-caption d-none d-md-block text-right align-middle ">
             <h1 style="color:black">`+productElement.name+`</h1>
@@ -26,7 +26,7 @@ function showRelacionated(array){
         bool =false;
         } else{
             htmlContentToAppend += `
-            <div class="carousel-item" data-interval="5000">
+            <div class="carousel-item" >
             <img src=`+productElement.imgSrc+` class="d-block w-50 float-left">
             <div class="carousel-caption d-none d-md-block text-right">
             <h1 style="color:black">`+productElement.name+`</h1>
