@@ -13,6 +13,7 @@ var totalart=0;
 
 
 function validation(ps, pa, pe, pi){
+    console.log(ps+pa+pe+pi);
     if(ps.trim()===""||pa.trim()===""||pe.trim()===""||pi.trim()===""){
         alert("Debe completar todos los campos del metodo de pago elegido")
     }
@@ -23,7 +24,7 @@ function validation(ps, pa, pe, pi){
 }
 function valcompra(){
     if(modalleno==="no"){
-        alert("Debe completar todos los campos requeridos para terminar la compra");
+        alert("Debe completar todos los campos requeridos para terminar la compra"+modalleno);
     }
     else{
         alert("Compra exitosa");
