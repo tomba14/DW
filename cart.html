@@ -11,7 +11,6 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -60,11 +59,115 @@
       <p class="lead">Aqui podras ver los articulos antes de comprarlos</p>
     </div>
     <div class="list-group text-center" id="ascman">
-      
+      <br>
     </div>
     <div class="text-center p-4">
       <h2>Opciones de Envio</h2>
       <p class="lead">Selecciona un tipo de envio</p>
+      <form>
+        <div class="form-group">
+        <input  class="form-check-label" type="radio" id="premium" name="gender" value="premium" onclick="calvalue(premium.value);">
+        <label for="premium">Premium - 2 a 5 dias (15%)</label><br>
+        <input class="form-check-label" type="radio" id="expr" name="gender" value="express" onclick="calvalue(expr.value);">
+        <label for="expr">Express 5 a 8 dias (7%)</label><br>
+        <input  class="form-check-label" type="radio" id="standar" name="gender" value="standar" onclick="calvalue(standar.value);">
+        <label for="standar">Standar 12 a 15 dias (5%)</label>
+      </div>
+      <br><br>
+      <p class="lead">¿Donde quieres recibir tu pedido?</p>
+      <div class="text-center" id="seccionDireccion">
+        <label for="direccion"><strong>Direccion:</strong></label>
+        <input type="text" id="direccion" required>
+        <label for="esquina"><strong>Esquina:</strong></label>  
+        <input type="text" id="esquina" required><br>
+        <label  for="numero"><strong>Numero:</strong></label>
+        <input type="text" id="numero" required>
+      </div>
+      <br><br>
+      <p class="lead">Metodo de Pago</p>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Pagar con credito
+      </button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#examp">
+        Pagar con debito
+      </button>
+      <br><br>
+      <div id="totale"></div>
+      <button type="submit" class="btn btn-primary" onclick="valcompra()"> Comprar</button>
+      </form>
+      
+
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Pago con Credito</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="num">Nº Tarjeta</label>
+                <input type="text"  size="18" id="numtar">
+                <br>
+                <label for="num">Codigo de seguridad</label>
+                <input type="text"  size="3" id="cvv">
+                <br>
+                <label for="num">Nombre</label>
+                <input type="text"   id="name">
+                <br>
+                <label for="num">Cedula de identidad</label>
+                <input type="text" size="8" id="ci">
+                <br>
+                <button type="button" class="btn btn-primary" onclick="validation(numtar.value, cvv.value, name.value, ci.value)">Guardar</button>
+              </div>
+              
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="examp" tabindex="-1" aria-labelledby="examp" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Pago con debito</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="num">Nº Tarjeta</label>
+                <input type="text" name="Num" size="18" id="numtar">
+                <br>
+                <label for="num">Codigo de seguridad</label>
+                <input type="text" name="Num" size="3" id="cvv">
+                <br>
+                <label for="num">Nombre</label>
+                <input type="text" name="Num"  id="name">
+                <br>
+                <label for="num">Cedula de identidad</label>
+                <input type="text" name="Num" size="8" id="ci">
+                <br>
+                <button type="button" class="btn btn-primary" onclick="validation(numtar.value, cvv.value, name.value, ci.value)">Guardar</button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>

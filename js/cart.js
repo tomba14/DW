@@ -7,10 +7,33 @@ var currentSortCriteria = undefined;
 var minCount = "menos";
 var maxCount = "mas";
 var nom = undefined;
+var tipenvio;
+var modalleno= "no";
+var totalart=0;
+
+
+function validation(ps, pa, pe, pi){
+    if(ps.trim()===""||pa.trim()===""||pe.trim()===""||pi.trim()===""){
+        alert("Debe completar todos los campos del metodo de pago elegido")
+    }
+    else{
+        modalleno= "si";
+    }
+
+}
+function valcompra(){
+    if(modalleno==="no"){
+        alert("Debe completar todos los campos requeridos para terminar la compra");
+    }
+    else{
+        alert("Compra exitosa");
+    }
+}
 function showCategoriesList(){
     minCount="menos";
     maxCount="mas";
     let htmlContentToAppend = "";
+    totalart=0;
     for(let i = 0; i < currentCategoriesArray.articles.length; i++){
         let category = currentCategoriesArray.articles[i];
         if(category.currency==="USD"){
@@ -21,6 +44,9 @@ function showCategoriesList(){
         }
         if(price<0){
             price=0;
+        }
+        else{
+            totalart += price;
         }
 
             htmlContentToAppend += `
@@ -45,7 +71,44 @@ function showCategoriesList(){
         document.getElementById("ascman").innerHTML = htmlContentToAppend;
     }
 }
+function calvalue(val){
+    let por=0.05;
+    if(val==="premium"){
+        por=0.15;
+    }
+    if(val==="express"){
+        por=0.07;
+    }
+    if(val==="standar"){
+        por=0.05;
+    }
+    let prec= totalart+(totalart*por);
+    let htmlContentToAppend ="";
+    htmlContentToAppend=`
+    <ul class="list-group mb-3">
+    <li class="list-group-item d-flex justify-content-between lh-condensed">
+      <div>
+        <h6 class="my-0">Precio</h6>
+        <small class="text-muted">Total de tus productos</small>
+      </div>
+      `+totalart +`
+    </li>
+    <li class="list-group-item d-flex justify-content-between lh-condensed">
+      <div>
+        <h6 class="my-0">Porcentaje</h6>
+        <small class="text-muted">Envio `+val +`</small>
+      </div>
+      `+(totalart*por)+`
+    </li>
+    <li class="list-group-item d-flex justify-content-between">
+      <h3>Total</h3>
+      <h3>`+prec+`</h3>
+    </li>
+  </ul>
+    `
 
+    document.getElementById("totale").innerHTML = htmlContentToAppend;
+}
 function cambiacount(nom,boolpa){
     console.log("ando aca");
     for(let i = 0; i < currentCategoriesArray.articles.length; i++){
